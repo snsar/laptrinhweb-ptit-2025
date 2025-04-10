@@ -1,0 +1,31 @@
+Mô tả: Là một ứng dụng web cho phép người dùng tạo, quản lý và theo dõi các công việc cá nhân hoặc nhóm. Người dùng có thể tổ chức công việc theo dự án, thiết lập thời hạn, phân công nhiệm vụ và theo dõi tiến độ.
+Các Tính Năng Chính
+1.	Quản lý người dùng
+o	Đăng ký, đăng nhập, đăng xuất
+o	Hồ sơ người dùng cá nhân
+o	Quản lý quyền truy cập
+2.	Quản lý công việc
+o	Tạo, chỉnh sửa, xóa công việc
+o	Phân loại công việc theo trạng thái (Cần làm, Đang làm, Hoàn thành)
+o	Thiết lập mức độ ưu tiên và thời hạn
+3.	Quản lý dự án
+o	Tạo và quản lý các dự án
+o	Thêm thành viên vào dự án
+o	Theo dõi tiến độ dự án
+4.	Bảng Kanban
+o	Giao diện trực quan để kéo thả công việc giữa các trạng thái
+o	Tổng quan về công việc hiện tại
+5.	Thông báo
+o	Nhắc nhở về thời hạn công việc
+o	Thông báo khi được phân công công việc mới
+
+Mở Rộng (Nếu Có đủ Thời Gian)
+•	Tích hợp biểu đồ Gantt để theo dõi tiến độ
+•	Tính năng nhắn tin nội bộ giữa các thành viên
+•	Tùy chọn xuất báo cáo (PDF, Excel)
+•	Tích hợp với Google Calendar hoặc Microsoft Outlook
+
+Công nghệ:
+•	Frontend: Vuejs
+•	Backend: Php Laravel
+
