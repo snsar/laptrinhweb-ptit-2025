@@ -1,7 +1,3 @@
-Dưới đây là nội dung file `README.md` được viết dựa trên mô tả của bạn, phù hợp cho một ứng dụng web quản lý công việc với công nghệ Vue.js và Laravel:
-
----
-
 # 📋 Ứng Dụng Quản Lý Công Việc
 
 Ứng dụng web cho phép người dùng tạo, quản lý và theo dõi các công việc cá nhân hoặc theo nhóm một cách trực quan và hiệu quả.
@@ -9,31 +5,37 @@ Dưới đây là nội dung file `README.md` được viết dựa trên mô t�
 ## 🚀 Tính Năng Chính
 
 ### 1. 👤 Quản Lý Người Dùng
+
 - Đăng ký, đăng nhập, đăng xuất
 - Quản lý hồ sơ người dùng cá nhân
 - Phân quyền và kiểm soát truy cập
 
 ### 2. ✅ Quản Lý Công Việc
+
 - Tạo, chỉnh sửa và xóa công việc
 - Phân loại theo trạng thái: `Cần làm`, `Đang làm`, `Hoàn thành`
 - Thiết lập mức độ ưu tiên và thời hạn
 
 ### 3. 📁 Quản Lý Dự Án
+
 - Tạo và theo dõi các dự án
 - Thêm thành viên vào từng dự án
 - Theo dõi tiến độ tổng thể
 
 ### 4. 📌 Bảng Kanban
+
 - Giao diện kéo thả trực quan giữa các trạng thái
 - Xem tổng quan các công việc theo nhóm hoặc cá nhân
 
 ### 5. 🔔 Thông Báo
+
 - Nhắc nhở về thời hạn sắp tới
 - Thông báo khi được phân công công việc mới
 
 ---
 
 ## 🔧 Mở Rộng (Tùy thuộc vào thời gian phát triển)
+
 - Biểu đồ Gantt để theo dõi tiến độ
 - Tính năng nhắn tin nội bộ giữa các thành viên
 - Xuất báo cáo dưới dạng PDF hoặc Excel
@@ -43,10 +45,12 @@ Dưới đây là nội dung file `README.md` được viết dựa trên mô t�
 
 ## 🛠️ Công Nghệ Sử Dụng
 
-### Frontend:
+### Frontend
+
 - [Vue.js](https://vuejs.org/)
 
-### Backend:
+### Backend
+
 - [Laravel (PHP)](https://laravel.com/)
 
 ---
@@ -54,6 +58,7 @@ Dưới đây là nội dung file `README.md` được viết dựa trên mô t�
 ## 📂 Cài Đặt Dự Án (Gợi ý)
 
 ### Backend (Laravel)
+
 ```bash
 cd backend/
 composer install
@@ -64,6 +69,7 @@ php artisan serve
 ```
 
 ### Frontend (Vue.js)
+
 ```bash
 cd frontend/
 npm install
@@ -73,6 +79,7 @@ npm run dev
 ---
 
 ## 📬 Đóng Góp
+
 Bạn có thể tạo pull request hoặc mở issue nếu muốn đóng góp hoặc đề xuất tính năng mới.
 
 ---
