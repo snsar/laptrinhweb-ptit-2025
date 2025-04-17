@@ -25,28 +25,40 @@ class ProjectTaskSeeder extends Seeder
         }
 
         // Create projects
-        $project1 = Project::create([
-            'name' => 'Website Redesign',
-            'description' => 'Redesign the company website with modern UI/UX principles',
-            'owner_id' => $admin->id,
-        ]);
+        $project1 = Project::firstOrCreate(
+            [
+                'name' => 'Website Redesign',
+                'owner_id' => $admin->id,
+            ],
+            [
+                'description' => 'Redesign the company website with modern UI/UX principles',
+            ]
+        );
 
-        $project2 = Project::create([
-            'name' => 'Mobile App Development',
-            'description' => 'Develop a mobile app for both iOS and Android platforms',
-            'owner_id' => $manager->id,
-        ]);
+        $project2 = Project::firstOrCreate(
+            [
+                'name' => 'Mobile App Development',
+                'owner_id' => $manager->id,
+            ],
+            [
+                'description' => 'Develop a mobile app for both iOS and Android platforms',
+            ]
+        );
 
-        $project3 = Project::create([
-            'name' => 'Marketing Campaign',
-            'description' => 'Plan and execute a marketing campaign for the new product launch',
-            'owner_id' => $admin->id,
-        ]);
+        $project3 = Project::firstOrCreate(
+            [
+                'name' => 'Marketing Campaign',
+                'owner_id' => $admin->id,
+            ],
+            [
+                'description' => 'Plan and execute a marketing campaign for the new product launch',
+            ]
+        );
 
         // Add members to projects
-        $project1->members()->attach([$admin->id, $manager->id, $user->id]);
-        $project2->members()->attach([$manager->id, $user->id]);
-        $project3->members()->attach([$admin->id, $manager->id]);
+        $project1->members()->sync([$admin->id, $manager->id, $user->id]);
+        $project2->members()->sync([$manager->id, $user->id]);
+        $project3->members()->sync([$admin->id, $manager->id]);
 
         // Create tasks for Project 1
         $tasks1 = [
@@ -182,7 +194,14 @@ class ProjectTaskSeeder extends Seeder
 
         // Insert all tasks
         foreach (array_merge($tasks1, $tasks2, $tasks3) as $taskData) {
-            Task::create($taskData);
+            // Check if task already exists
+            $existingTask = Task::where('title', $taskData['title'])
+                ->where('project_id', $taskData['project_id'])
+                ->first();
+
+            if (!$existingTask) {
+                Task::create($taskData);
+            }
         }
     }
 }

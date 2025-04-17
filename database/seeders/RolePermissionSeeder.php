@@ -36,27 +36,36 @@ class RolePermissionSeeder extends Seeder
         ];
 
         foreach ($permissions as $permission) {
-            Permission::create($permission);
+            Permission::firstOrCreate(
+                ['slug' => $permission['slug']],
+                $permission
+            );
         }
 
         // Tạo các vai trò
-        $adminRole = Role::create([
-            'name' => 'Administrator',
-            'slug' => 'admin',
-            'description' => 'Quản trị viên có toàn quyền'
-        ]);
+        $adminRole = Role::firstOrCreate(
+            ['slug' => 'admin'],
+            [
+                'name' => 'Administrator',
+                'description' => 'Quản trị viên có toàn quyền'
+            ]
+        );
 
-        $managerRole = Role::create([
-            'name' => 'Project Manager',
-            'slug' => 'project-manager',
-            'description' => 'Quản lý dự án'
-        ]);
+        $managerRole = Role::firstOrCreate(
+            ['slug' => 'project-manager'],
+            [
+                'name' => 'Project Manager',
+                'description' => 'Quản lý dự án'
+            ]
+        );
 
-        $userRole = Role::create([
-            'name' => 'User',
-            'slug' => 'user',
-            'description' => 'Người dùng bình thường'
-        ]);
+        $userRole = Role::firstOrCreate(
+            ['slug' => 'user'],
+            [
+                'name' => 'User',
+                'description' => 'Người dùng bình thường'
+            ]
+        );
 
         // Gán tất cả quyền cho admin
         $adminRole->permissions()->attach(Permission::all());
@@ -88,27 +97,33 @@ class RolePermissionSeeder extends Seeder
         );
 
         // Tạo tài khoản admin mặc định
-        $admin = User::create([
-            'name' => 'Admin',
-            'email' => 'admin@example.com',
-            'password' => Hash::make('password'),
-        ]);
-        $admin->roles()->attach($adminRole);
+        $admin = User::firstOrCreate(
+            ['email' => 'admin@example.com'],
+            [
+                'name' => 'Admin',
+                'password' => Hash::make('password'),
+            ]
+        );
+        $admin->roles()->sync([$adminRole->id]);
 
         // Tạo tài khoản manager mặc định
-        $manager = User::create([
-            'name' => 'Project Manager',
-            'email' => 'manager@example.com',
-            'password' => Hash::make('password'),
-        ]);
-        $manager->roles()->attach($managerRole);
+        $manager = User::firstOrCreate(
+            ['email' => 'manager@example.com'],
+            [
+                'name' => 'Project Manager',
+                'password' => Hash::make('password'),
+            ]
+        );
+        $manager->roles()->sync([$managerRole->id]);
 
         // Tạo tài khoản user mặc định
-        $user = User::create([
-            'name' => 'User',
-            'email' => 'user@example.com',
-            'password' => Hash::make('password'),
-        ]);
-        $user->roles()->attach($userRole);
+        $user = User::firstOrCreate(
+            ['email' => 'user@example.com'],
+            [
+                'name' => 'User',
+                'password' => Hash::make('password'),
+            ]
+        );
+        $user->roles()->sync([$userRole->id]);
     }
 }
