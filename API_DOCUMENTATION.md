@@ -54,7 +54,7 @@
 
 ## 3. Source Code
 
-Link GitHub: [laptrinhweb-ptit-2025](https://github.com/your-username/laptrinhweb-ptit-2025)
+Link GitHub: [laptrinhweb-ptit-2025](https://github.com/snsar/laptrinhweb-ptit-2025)
 
 ## 4. Chú thích
 
